@@ -57,3 +57,6 @@ for var in variables:
         print(f'La distribution de {var} semble normale (échec de rejet de H0)\n')
     else:
         print(f'La distribution de {var} ne semble pas normale (rejet de H0)\n')
+
+#Vérifier l'équilibre des classes
+df.EPS_Target.value_counts()
