@@ -1,0 +1,17 @@
+#Correlation Matrix1
+import seaborn as sb
+sb.pairplot(df, hue='EPS_Target');
+
+
+#Correlation Matrix2
+# Filter out non-numeric columns
+numeric_df = df.select_dtypes(include=['number'])
+
+# Calculate correlation matrix
+correlation_matrix = numeric_df.corr()
+
+# Plot correlation matrix
+plt.figure(figsize=(8, 6))
+sb.heatmap(correlation_matrix, annot=True, cmap='coolwarm', fmt=".2f", linewidths=.5)
+plt.title("Correlation Matrix")
+plt.show()
