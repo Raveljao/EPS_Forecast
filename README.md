@@ -1,14 +1,28 @@
 # EPS_Forecast: Financial Prediction Using AI
 
 ## Overview
-This project explores the use of **Artificial Intelligence (AI)** to predict **Earnings Per Share (EPS)** for companies. It focuses on applying various AI models to financial data to enhance the accuracy of financial forecasts.
+This project explores the use of **Artificial Intelligence (AI)** to predict **Earnings Per Share (EPS) Variation** for companies. It focuses on applying various AI models to financial data to enhance the accuracy of financial forecasts.
 
 ## Project Structure
-- **Introduction**: Context and justification for using AI in financial predictions.
-- **Literature Review**: Overview of fundamental financial concepts and existing prediction models.
-- **Methodology**: Detailed explanation of data selection, preprocessing, and the AI models used.
-- **Data Analysis and Experimentation**: Analysis of the data and results from applying different AI models.
-- **Conclusion**: Summary of findings, discussion, and future recommendations.
+
+### Introduction
+The project explores the use of **Artificial Intelligence (AI)** in financial predictions, particularly focusing on **Earnings Per Share (EPS)**. The motivation stems from the potential to improve financial forecasting accuracy using AI tools.
+
+### Literature Review
+This section covers fundamental financial concepts such as **cash flows**, **income statements**, and **balance sheets**. It also reviews existing financial prediction models and their applications.
+
+### Methodology
+The research involves:
+- Selecting relevant financial data
+- Preprocessing the data
+- Applying AI models such as **Logistic Regression**, **Random Forest**, and **Support Vector Machine (SVM)** to predict EPS.
+
+### Data Analysis and Experimentation
+The analysis includes testing different AI models on historical financial data of **45 French companies**. The **Random Forest** model showed the most promising results with an average **F1 score of 74%**.
+
+### Conclusion
+The findings indicate that while AI models can enhance financial predictions, further experimentation is needed. Recommendations for future research are provided.
+
 
 ## AI Models Used
 - **Logistic Regression**
