@@ -1,0 +1,59 @@
+import seaborn as sb
+import matplotlib.pyplot as plt
+
+# Liste des variables à afficher
+variables = ["Sales/Revenue", "Cost of Goods Sold (COGS) incl. D&A",
+             "Short term Debt", "Long Term Debt",
+             "Total Assets/Liabilities", "Total Equity",
+             "Net Operating Cash Flow", "Net Investing CashFlow",
+             "FreeCashFlow"]
+
+# Itération sur chaque variable et création de l'histogramme
+for var in variables:
+    sb.histplot(df[var], kde=False)
+    plt.title(f'Histogramme de {var}')
+    plt.xlabel(var)
+    plt.ylabel('Fréquence')
+    plt.show()
+
+import seaborn as sb
+import matplotlib.pyplot as plt
+import scipy.stats as stats
+
+# Liste des variables à afficher
+variables = ["Sales/Revenue", "Cost of Goods Sold (COGS) incl. D&A",
+             "Short term Debt", "Long Term Debt",
+             "Total Assets/Liabilities", "Total Equity",
+             "Net Operating Cash Flow", "Net Investing CashFlow",
+             "FreeCashFlow"]
+
+# Itération sur chaque variable et création des graphiques
+for var in variables:
+    plt.figure(figsize=(14, 6))
+
+    # Histogramme avec KDE
+    plt.subplot(1, 2, 1)
+    sb.histplot(df[var], kde=False)
+    plt.title(f'Histogramme de {var}')
+    plt.xlabel(var)
+    plt.ylabel('Fréquence')
+
+    # Boxplot
+    plt.subplot(1, 2, 2)
+    sb.boxplot(x=df[var])
+    plt.title(f'Boxplot de {var}')
+    plt.xlabel(var)
+
+    # Affichage des graphiques
+    plt.show()
+
+    # Test de Shapiro-Wilk pour la normalité
+    stat, p = stats.shapiro(df[var].dropna())
+    print(f'Test de Shapiro-Wilk pour {var} : Statistique={stat}, p-value={p}')
+
+    # Interprétation du test de Shapiro-Wilk
+    alpha = 0.05
+    if p > alpha:
+        print(f'La distribution de {var} semble normale (échec de rejet de H0)\n')
+    else:
+        print(f'La distribution de {var} ne semble pas normale (rejet de H0)\n')
