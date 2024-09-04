@@ -1,0 +1,26 @@
+# Import libraries
+import pandas as pd
+import seaborn as sb
+import matplotlib.pyplot as plt
+
+# Chargement du jeu de donnée
+df = pd.read_csv("CLEAN132_extreme.csv", sep=';', encoding='latin1')
+df = df.rename(columns={'ï»¿Company': "Company", "Variation EPS annÃ©e suivante(+ =>1 & - =>0)": "EPS_Target"})
+df.info()
+
+  for c in df.columns:
+    if c != 'Company' and c != 'Var':
+        if df[c].dtype == 'object':
+            try:
+                df[c] = df[c].str.replace(",", ".").astype(float)
+            except ValueError:
+                print(f"Error converting column '{c}' to float. Check for non-numeric values.")
+        elif c == 'EPS_Target':
+            df[c] = df[c].astype(int)
+
+df.info()
+df = df.reset_index(drop=True)
+df.to_csv('data_clean.csv', index=False)
+
+  df = pd.read_csv('data_clean.csv')
+df.head()
